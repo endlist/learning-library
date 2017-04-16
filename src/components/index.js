@@ -1,9 +1,11 @@
-import angular from 'angular';
-import uirouter from 'angular-ui-router';
-import routing from './home.routes';
-import HomeController from './home.controller';
+import angular from 'angular'
+import HomeComponent from './home'
+import AddResourceComponent from './addResource'
+import LibraryComponent from './library'
 
-export default angular.module('app.home', [uirouter])
-  .config(routing)
-  .controller('HomeController', HomeController)
+export default angular.module('app.components', [
+  HomeComponent,
+  AddResourceComponent,
+  LibraryComponent,
+])
   .name;
