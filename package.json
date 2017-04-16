@@ -1,0 +1,40 @@
+{
+  "name": "learning-library",
+  "version": "1.0.0",
+  "description": "Personal digital library for learning resources.",
+  "main": "src/index.js",
+  "dependencies": {
+    "angular": "^1.6.4"
+  },
+  "devDependencies": {
+    "angular-ui-router": "^0.4.2",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^6.4.1",
+    "copy-webpack-plugin": "^4.0.1",
+    "css-loader": "^0.28.0",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "file-loader": "^0.11.1",
+    "html-webpack-plugin": "^2.28.0",
+    "raw-loader": "^0.5.1",
+    "static-site-generator-webpack-plugin": "^3.4.1",
+    "style-loader": "^0.16.1",
+    "webpack": "^2.4.1",
+    "webpack-dev-server": "^2.4.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --progress --colors",
+    "dev": "webpack-dev-server --progress --colors",
+    "start": "npm run dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/endlist/learning-library.git"
+  },
+  "author": "Li Wren",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/endlist/learning-library/issues"
+  },
+  "homepage": "https://github.com/endlist/learning-library#readme"
+}
