@@ -73,11 +73,19 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/learning-library/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 8);
+/******/ 	return __webpack_require__(__webpack_require__.s = 16);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(6);
+module.exports = angular;
+
+
+/***/ }),
+/* 1 */
 /***/ (function(module, exports) {
 
 /**
@@ -4766,14 +4774,6 @@ angular.module('ui.router.state')
 })(window, window.angular);
 
 /***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(5);
-module.exports = angular;
-
-
-/***/ }),
 /* 2 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -4791,18 +4791,17 @@ function routing($urlRouterProvider, $locationProvider) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular_ui_router__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular_ui_router___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_angular_ui_router__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_routes__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_controller__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__addResource__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__library__ = __webpack_require__(13);
 
 
 
 
 
-/* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('app.home', [__WEBPACK_IMPORTED_MODULE_1_angular_ui_router___default.a]).config(__WEBPACK_IMPORTED_MODULE_2__home_routes__["a" /* default */]).controller('HomeController', __WEBPACK_IMPORTED_MODULE_3__home_controller__["a" /* default */]).name);
+/* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('app.components', [__WEBPACK_IMPORTED_MODULE_1__home__["a" /* default */], __WEBPACK_IMPORTED_MODULE_2__addResource__["a" /* default */], __WEBPACK_IMPORTED_MODULE_3__library__["a" /* default */]]).name);
 
 /***/ }),
 /* 4 */
@@ -4812,6 +4811,12 @@ function routing($urlRouterProvider, $locationProvider) {
 
 /***/ }),
 /* 5 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 6 */
 /***/ (function(module, exports) {
 
 /**
@@ -38188,24 +38193,63 @@ $provide.value("$locale", {
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
 
 /***/ }),
-/* 6 */
+/* 7 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__addResource_controller__ = __webpack_require__(8);
+
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+  template: __webpack_require__(17),
+  controller: __WEBPACK_IMPORTED_MODULE_0__addResource_controller__["a" /* default */],
+  controllerAs: 'addResource',
+  bindings: {}
+});
+
+/***/ }),
+/* 8 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+class AddResourceController {
+  constructor() {
+    this.title = '';
+  }
+
+  submit() {
+    console.log('hello', this.title);
+  }
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = AddResourceController;
+
+
+/***/ }),
+/* 9 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__addResource_component__ = __webpack_require__(7);
+
+
+
+/* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('app.components.addResource', []).component('addResource', __WEBPACK_IMPORTED_MODULE_1__addResource_component__["a" /* default */]).name);
+
+/***/ }),
+/* 10 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 class HomeController {
-  constructor() {
-    this.name = 'World';
-  }
-
-  changeName() {
-    this.name = 'whatever';
-  }
+  constructor() {}
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = HomeController;
 
 
 /***/ }),
-/* 7 */
+/* 11 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -38215,39 +38259,117 @@ routes.$inject = ['$stateProvider'];
 function routes($stateProvider) {
   $stateProvider.state('home', {
     url: '/',
-    template: __webpack_require__(9),
+    template: __webpack_require__(18),
     controller: 'HomeController',
     controllerAs: 'home'
   });
 }
 
 /***/ }),
-/* 8 */
+/* 12 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular_ui_router__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular_ui_router___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_angular_ui_router__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_routes__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_controller__ = __webpack_require__(10);
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('app.components.home', [__WEBPACK_IMPORTED_MODULE_1_angular_ui_router___default.a]).config(__WEBPACK_IMPORTED_MODULE_2__home_routes__["a" /* default */]).controller('HomeController', __WEBPACK_IMPORTED_MODULE_3__home_controller__["a" /* default */]).name);
+
+/***/ }),
+/* 13 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__library_component__ = __webpack_require__(14);
+
+
+
+/* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('app.components.library', []).component('library', __WEBPACK_IMPORTED_MODULE_1__library_component__["a" /* default */]).name);
+
+/***/ }),
+/* 14 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__library_controller__ = __webpack_require__(15);
+
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+  template: __webpack_require__(19),
+  controller: __WEBPACK_IMPORTED_MODULE_0__library_controller__["a" /* default */],
+  controllerAs: 'library',
+  bindings: {}
+});
+
+/***/ }),
+/* 15 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+class LibraryController {
+  constructor() {
+    this.title = '';
+  }
+
+  submit() {
+    console.log('hello', this.title);
+  }
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = LibraryController;
+
+
+/***/ }),
+/* 16 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__style_main_css__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__style_main_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__style_main_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_angular__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular_ui_router__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular_ui_router___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_angular_ui_router__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_config__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_bootstrap_dist_css_bootstrap_css__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_bootstrap_dist_css_bootstrap_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_bootstrap_dist_css_bootstrap_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__style_main_css__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__style_main_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__style_main_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_angular__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular_ui_router__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular_ui_router___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_angular_ui_router__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_config__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components__ = __webpack_require__(3);
 
 
 
 
 
 
-__WEBPACK_IMPORTED_MODULE_1_angular___default.a.module('app', [__WEBPACK_IMPORTED_MODULE_2_angular_ui_router___default.a, __WEBPACK_IMPORTED_MODULE_4__components__["a" /* default */]]).config(__WEBPACK_IMPORTED_MODULE_3__app_config__["a" /* default */]);
+
+__WEBPACK_IMPORTED_MODULE_2_angular___default.a.module('app', [__WEBPACK_IMPORTED_MODULE_3_angular_ui_router___default.a, __WEBPACK_IMPORTED_MODULE_5__components__["a" /* default */]]).config(__WEBPACK_IMPORTED_MODULE_4__app_config__["a" /* default */]);
 
 /***/ }),
-/* 9 */
+/* 17 */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n  <h1>Hello, {{home.name}}</h1>\n</div>\n\n<button ng-click=\"home.changeName()\">Change</button>\n"
+module.exports = "<section class=\"add-resource\">\n  <form>\n    <label for=\"resource-title\">Title</label><input type=\"text\" name=\"Title\" ng-model=\"addResource.title\" id=\"resource-title\">\n\n    <button class=\"btn btn-primary\" ng-click=\"addResource.submit()\">Add</button>\n  </form>\n</section>\n"
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"jumbotron\">\n  <h1>Learning Library</h1>\n</div>\n\n<add-resource></add-resource>\n<library></library>\n"
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports) {
+
+module.exports = "<section class=\"library\">\n  <form>\n    <label for=\"resource-title\">Title</label><input type=\"text\" name=\"Title\" ng-model=\"addResource.title\" id=\"resource-title\">\n\n    <button class=\"btn btn-primary\" ng-click=\"addResource.submit()\">Add</button>\n  </form>\n</section>\n"
 
 /***/ })
 /******/ ]);
