@@ -50,7 +50,7 @@ module.exports = function createConfig() {
       }]),
       new ExtractTextPlugin('styles.css'),
       new HtmlWebpackPlugin({
-        template: './src/public/index.html'
+        template: './src/index.html'
       })
     ]
   };
