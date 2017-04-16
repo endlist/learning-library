@@ -4779,10 +4779,9 @@ angular.module('ui.router.state')
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = routing;
-routing.$inject = ['$urlRouterProvider', '$locationProvider'];
+routing.$inject = ['$urlRouterProvider'];
 
-function routing($urlRouterProvider, $locationProvider) {
-  $locationProvider.html5Mode(true);
+function routing($urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
 }
 
