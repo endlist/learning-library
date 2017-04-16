@@ -1,15 +1,8 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin');
 
 const path = require('path');
-const data = {
-  title: 'Something',
-  routes: [
-    '/'
-  ]
-};
 
 const ENV = process.env.npm_lifecycle_event;
 const isProd = ENV === 'build';
@@ -22,6 +15,7 @@ module.exports = function createConfig() {
     output: {
       filename: 'bundle.js',
       path: path.resolve(__dirname, 'build'),
+      publicPath: isProd ? '/learning-library/' : 'http://localhost:8080/',
       libraryTarget: 'umd'
     },
 
@@ -60,12 +54,6 @@ module.exports = function createConfig() {
       })
     ]
   };
-
-  if (isProd) {
-    config.plugins.push(
-      // new StaticSiteGeneratorPlugin('bundle.js', data.routes, data)
-    );
-  }
 
   return config;
 };
