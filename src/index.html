@@ -6,8 +6,14 @@
     <title>Learning Library</title>
   </head>
   <body>
-    <div class="container">
-      <ui-view></ui-view>
+    <div class="container-fluid">
+      <div ui-view="header"></div>
+      <div ui-view="library"></div>
+      <footer class="row">
+        <div class="col-12">
+          Icons by <a href="http://www.flaticon.com/authors/madebyoliver">Madebyoliver</a>.
+        </div>
+      </footer>
     </div>
   </body>
 </html>

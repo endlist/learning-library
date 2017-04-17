@@ -1,0 +1,36 @@
+<h2>Edit Resource</h2>
+<form name="editResourceForm" ng-submit="$ctrl.submit()" novalidate>
+  <div class="form-group">
+    <label for="resource-title">Title</label>
+    <input
+           type="text"
+           name="Title"
+           ng-model="$ctrl.resource.title"
+           class="form-control"
+           id="resource-title"
+           required>
+    <span class="alert alert-danger" ng-show="editResourceForm.Title.$dirty && editResourceForm.Title.$invalid">
+      <span ng-show="editResourceForm.Title.$error.required">
+        REQUIRED.
+      </span>
+    </span>
+  </div>
+
+  <div class="form-group">
+    <label for="resource-notes">Notes</label><input type="text" name="Notes" ng-model="$ctrl.resource.notes" class="form-control" id="resource-notes">
+  </div>
+
+  <div class="form-group">
+    <label for="resource-link">Link</label><input type="url" name="Link" ng-model="$ctrl.resource.link" class="form-control" id="resource-link">
+    <span class="alert alert-danger" ng-show="editResourceForm.Link.$dirty && editResourceForm.Link.$invalid">
+      <span ng-show="editResourceForm.Link.$error.url">
+        Not a valid url format.
+      </span>
+    </span>
+  </div>
+
+  <button class="btn btn-primary" ng-click="$ctrl.submit(editResourceForm)" ng-disabled="editResourceForm.$invalid" ui-sref="home">Save</button>
+  <button class="btn btn-secondary" ui-sref="home">Cancel</button>
+</form>
+
+

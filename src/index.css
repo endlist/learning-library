@@ -1,2 +1,20 @@
-body {
+.ng-dirty.ng-invalid {
+  border-color: red;
+}
+.alert {
+  float: right;
+  padding: .25rem;
+}
+
+.library {
+  margin-top: 2rem;
+}
+
+svg {
+  width: 100%;
+  height: auto;
+}
+
+button {
+  cursor: pointer;
 }

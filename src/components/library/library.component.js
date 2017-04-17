@@ -1,4 +1,4 @@
-import LibraryController from './library.controller'
+import LibraryController from './library.controller';
 
 export default {
   template: require('./library.html'),

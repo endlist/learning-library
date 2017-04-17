@@ -1,0 +1,13 @@
+edit-resource,
+add-resource {
+  position: absolute;
+  height: 100vh;
+  background: black;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  padding: 20px;
+  color: white;
+  width: 300px;
+  opacity: 0.9;
+}

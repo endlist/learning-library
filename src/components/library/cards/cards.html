@@ -1,0 +1,35 @@
+<div class="card-deck-wrapper">
+<div class="card-deck row">
+  <div class="card" ng-repeat="resource in $ctrl.resources">
+    <div class="card-img-top img-responsive">
+      <svg class="icon">
+        <use ng-attr-xlink:href="{{resource.imgUrl}}" xlink:href="" />
+      </svg>
+    </div>
+    <div class="card-block">
+      <h4 class="card-header">
+        <!-- link if one exists -->
+        <span ng-if="resource.link">
+          <a ng-if="resource.link" href="{{resource.link}}">{{ resource.title }}</a>
+        </span>
+        <!-- don't link as default -->
+        <span ng-if="!resource.link">
+          {{ resource.title }}
+        </span>
+      </h4>
+      <p class="card-text">Notes: {{resource.notes || "N/A"}}</p>
+      <div class="date-updated">
+        Last Updated: <span am-time-ago="resource.dateUpdated"></span>
+        ({{resource.dateUpdated | date:'MMM dd yyyy'}})
+      </div>
+      <span class="float-right">
+        <button class="btn btn-primary btn-sm" ui-sref="resource.edit({ resourceId: resource.key })">Edit</button>
+        <remove-resource resource="resource"></remove-resource>
+      </span>
+    </div>
+  </div>
+</div>
+<div ng-if="$ctrl.resources == null || $ctrl.resources.length == 0" class="row jumbotron">
+  Add Some Resources!
+</div>
+</div>

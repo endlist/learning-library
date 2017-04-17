@@ -1,3 +1,22 @@
 {
-  "extends": "standard"
+  "extends": "standard",
+  "globals": {
+    "angular": true,
+    "inject": true,
+    "sinon": true,
+    "expect": true,
+    "describe": true
+  },
+  "env": {
+    "browser": true,
+    "mocha": true,
+    "es6": true
+  },
+  "rules": {
+    "semi": ["error", "always"],
+    "comma-dangle": "off",
+    "padded-blocks": "off",
+    "no-unused-vars": "warn",
+    "no-unused-expressions": "warn"
+  }
 }

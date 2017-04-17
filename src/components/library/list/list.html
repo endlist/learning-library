@@ -1,0 +1,59 @@
+<table class="library-list table table-striped" show-filter="true" ng-table="$ctrl.resources">
+  <tr ng-repeat="resource in $data track by resource.key">
+    <td
+      data-title="'Date Updated'"
+      header-class="'text-left'"
+      sortable="'dateUpdated'"
+      >
+      <span am-time-ago="resource.dateUpdated"
+        title="{{resource.dateUpdated | date:'MMM dd yyyy'}}"></span>
+    </td>
+    <td
+      data-title="'Type'"
+      header-class="'text-left'"
+      filter="{type: 'text'}" 
+      sortable="'type'">
+      <span class="type-icon float-left">
+      <svg class="icon float-left">
+        <use ng-attr-xlink:href="{{resource.imgUrl}}" xlink:href="" />
+      </svg>
+      </span>
+      {{ resource.type }}
+    </td>
+    <td
+      data-title="'Title'"
+      header-class="'text-left'"
+      filter="{title: 'text'}" 
+      sortable="'title'">
+      <!-- link if one exists -->
+      <span ng-if="resource.link">
+        <a ng-if="resource.link" href="{{resource.link}}">{{ resource.title }}</a>
+      </span>
+      <!-- don't link as default -->
+      <span ng-if="!resource.link">
+        {{ resource.title }}
+      </span>
+    </td>
+    <td 
+      data-title="'Notes'"
+      header-class="'text-left'"
+      filter="{notes: 'text'}" 
+      sortable="'notes'">
+      {{ resource.notes || 'N/A' }}
+    </td>
+    <td
+     data-title="'Manage'"
+     header-class="'text-right'"
+      >
+      <span class="float-right">
+        <button class="btn btn-primary btn-sm" ui-sref="resource.edit({ resourceId: resource.key })">Edit</button>
+        <remove-resource resource="resource"></remove-resource>
+      </span>
+    </td>
+  </tr>
+  <tr ng-if="$ctrl.resources.data.length == 0">
+    <td colspan="5" class="text-center">
+      Add Some Resources!
+    </td>
+  </tr>
+</table>

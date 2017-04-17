@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -23,8 +24,11 @@ module.exports = function createConfig() {
       rules: [
         {
           test: /\.js$/,
-          use: 'babel-loader',
-          exclude: /node_modules/
+          loader: 'babel-loader',
+          exclude: /node_modules/,
+          query: {
+            presets: ['es2015']
+          }
         },
         {
           test: /\.css$/,

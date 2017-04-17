@@ -1,4 +1,10 @@
-<section class="library">
-  <h3>Resource List</h3>
-  <library-list></library-list>
-</section>
+<div class="row">
+  <section class="library col-12">
+    <h3>Resources</h3>
+    <button ng-click="$ctrl.setView('cards')" ng-class="{ active: $ctrl.getView() === 'cards' }" class="btn btn-secondary">Cards</button>
+    <button ng-click="$ctrl.setView('list')" ng-class="{ active: $ctrl.getView() === 'list' }" class="btn btn-secondary">List</button>
+    <div ui-view="libraryView">
+      <library-list></library-list>
+    </div>
+  </section>
+</div>
