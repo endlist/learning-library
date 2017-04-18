@@ -86,56 +86,81 @@ module.exports = angular;
 
 /***/ }),
 /* 1 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular_local_storage__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular_local_storage___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_angular_local_storage__);
 
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-class Resource {
-  constructor(localStorageService) {
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _angular = __webpack_require__(0);
+
+var _angular2 = _interopRequireDefault(_angular);
+
+var _angularLocalStorage = __webpack_require__(9);
+
+var _angularLocalStorage2 = _interopRequireDefault(_angularLocalStorage);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Resource = function () {
+  function Resource(localStorageService) {
+    _classCallCheck(this, Resource);
+
     this.ls = localStorageService;
   }
 
-  upsert(resource) {
-    if (!resource || !resource.hasOwnProperty('key')) {
-      throw new Error('Resource Key Required');
+  _createClass(Resource, [{
+    key: 'upsert',
+    value: function upsert(resource) {
+      if (!resource || !resource.hasOwnProperty('key')) {
+        throw new Error('Resource Key Required');
+      }
+
+      this.ls.set(resource.key, resource);
     }
+  }, {
+    key: 'get',
+    value: function get(key) {
+      return this.ls.get(key);
+    }
+  }, {
+    key: 'getAll',
+    value: function getAll() {
+      var _this = this;
 
-    this.ls.set(resource.key, resource);
-  }
+      var keys = this.getKeys();
+      var resources = [];
+      keys.map(function (val) {
+        var resource = _this.get(val);
+        resources.push(resource);
+      });
+      return resources;
+    }
+  }, {
+    key: 'getKeys',
+    value: function getKeys() {
+      return this.ls.keys();
+    }
+  }, {
+    key: 'remove',
+    value: function remove(key) {
+      return this.ls.remove(key);
+    }
+  }]);
 
-  get(key) {
-    return this.ls.get(key);
-  }
+  return Resource;
+}();
 
-  getAll() {
-    const keys = this.getKeys();
-    const resources = [];
-    keys.map(val => {
-      const resource = this.get(val);
-      resources.push(resource);
-    });
-    return resources;
-  }
-
-  getKeys() {
-    return this.ls.keys();
-  }
-
-  remove(key) {
-    return this.ls.remove(key);
-  }
-
-}
-
-/* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('services.resource', [__WEBPACK_IMPORTED_MODULE_1_angular_local_storage___default.a]).config(function (localStorageServiceProvider) {
+exports.default = _angular2.default.module('services.resource', [_angularLocalStorage2.default]).config(function (localStorageServiceProvider) {
   localStorageServiceProvider.setPrefix('learnlib').setNotify(false, false);
-}).service('ResourceService', Resource).name);
+}).service('ResourceService', Resource).name;
 
 /***/ }),
 /* 2 */
@@ -5086,10 +5111,15 @@ if (typeof module !== 'undefined' && module.exports) {
 
 /***/ }),
 /* 4 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = routing;
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = routing;
 routing.$inject = ['$urlRouterProvider'];
 
 function routing($urlRouterProvider) {
@@ -5098,20 +5128,34 @@ function routing($urlRouterProvider) {
 
 /***/ }),
 /* 5 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__resource__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__library__ = __webpack_require__(14);
 
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
+var _angular = __webpack_require__(0);
 
+var _angular2 = _interopRequireDefault(_angular);
 
-/* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('app.components', [__WEBPACK_IMPORTED_MODULE_1__home__["a" /* default */], __WEBPACK_IMPORTED_MODULE_2__resource__["a" /* default */], __WEBPACK_IMPORTED_MODULE_3__library__["a" /* default */]]).name);
+var _home = __webpack_require__(13);
+
+var _home2 = _interopRequireDefault(_home);
+
+var _resource = __webpack_require__(26);
+
+var _resource2 = _interopRequireDefault(_resource);
+
+var _library = __webpack_require__(14);
+
+var _library2 = _interopRequireDefault(_library);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _angular2.default.module('app.components', [_home2.default, _resource2.default, _library2.default]).name;
 
 /***/ }),
 /* 6 */
@@ -39065,21 +39109,36 @@ $provide.value("$locale", {
 
 /***/ }),
 /* 11 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-class HomeController {
-  constructor() {}
-}
-/* harmony export (immutable) */ __webpack_exports__["a"] = HomeController;
 
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var HomeController = function HomeController() {
+  _classCallCheck(this, HomeController);
+
+  console.log('This is Home');
+};
+
+exports.default = HomeController;
 
 /***/ }),
 /* 12 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = routes;
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = routes;
 routes.$inject = ['$stateProvider'];
 
 function routes($stateProvider) {
@@ -39093,166 +39152,279 @@ function routes($stateProvider) {
 
 /***/ }),
 /* 13 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular_ui_router__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular_ui_router___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_angular_ui_router__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_routes__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_controller__ = __webpack_require__(11);
 
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
+var _angular = __webpack_require__(0);
 
+var _angular2 = _interopRequireDefault(_angular);
 
-/* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('app.components.home', [__WEBPACK_IMPORTED_MODULE_1_angular_ui_router___default.a]).config(__WEBPACK_IMPORTED_MODULE_2__home_routes__["a" /* default */]).controller('HomeController', __WEBPACK_IMPORTED_MODULE_3__home_controller__["a" /* default */]).name);
+var _angularUiRouter = __webpack_require__(2);
+
+var _angularUiRouter2 = _interopRequireDefault(_angularUiRouter);
+
+var _home = __webpack_require__(12);
+
+var _home2 = _interopRequireDefault(_home);
+
+var _home3 = __webpack_require__(11);
+
+var _home4 = _interopRequireDefault(_home3);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _angular2.default.module('app.components.home', [_angularUiRouter2.default]).config(_home2.default).controller('HomeController', _home4.default).name;
 
 /***/ }),
 /* 14 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__library_component__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__libraryList__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__libraryListResource__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__resource_resource_service__ = __webpack_require__(1);
 
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
+var _angular = __webpack_require__(0);
 
+var _angular2 = _interopRequireDefault(_angular);
 
+var _library = __webpack_require__(15);
 
-/* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('app.components.library', [__WEBPACK_IMPORTED_MODULE_2__libraryList__["a" /* default */], __WEBPACK_IMPORTED_MODULE_3__libraryListResource__["a" /* default */], __WEBPACK_IMPORTED_MODULE_4__resource_resource_service__["a" /* default */]]).component('library', __WEBPACK_IMPORTED_MODULE_1__library_component__["a" /* default */]).name);
+var _library2 = _interopRequireDefault(_library);
+
+var _libraryList = __webpack_require__(17);
+
+var _libraryList2 = _interopRequireDefault(_libraryList);
+
+var _libraryListResource = __webpack_require__(20);
+
+var _libraryListResource2 = _interopRequireDefault(_libraryListResource);
+
+var _resource = __webpack_require__(1);
+
+var _resource2 = _interopRequireDefault(_resource);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _angular2.default.module('app.components.library', [_libraryList2.default, _libraryListResource2.default, _resource2.default]).component('library', _library2.default).name;
 
 /***/ }),
 /* 15 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__library_controller__ = __webpack_require__(16);
 
 
-/* harmony default export */ __webpack_exports__["a"] = ({
-  template: __webpack_require__(33),
-  controller: __WEBPACK_IMPORTED_MODULE_0__library_controller__["a" /* default */],
-  bindings: {}
+Object.defineProperty(exports, "__esModule", {
+  value: true
 });
+
+var _library = __webpack_require__(16);
+
+var _library2 = _interopRequireDefault(_library);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = {
+  template: __webpack_require__(33),
+  controller: _library2.default,
+  bindings: {}
+};
 
 /***/ }),
 /* 16 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-class LibraryController {
-  constructor($scope, ResourceService, eventNames) {
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var LibraryController = function () {
+  function LibraryController($scope, ResourceService, eventNames) {
+    var _this = this;
+
+    _classCallCheck(this, LibraryController);
+
     this.resourceSvc = ResourceService;
     this.resources = this.getResources();
 
-    $scope.$on(eventNames.lsSet, (event, val) => {
-      console.log('not working?');
-      this.resources = this.getResources();
+    $scope.$on(eventNames.lsSet, function (event, val) {
+      _this.resources = _this.getResources();
     });
 
-    $scope.$on(eventNames.lsRemove, (event, val) => {
-      console.log('not working?');
-      this.resources = this.getResources();
+    $scope.$on(eventNames.lsRemove, function (event, val) {
+      _this.resources = _this.getResources();
     });
   }
 
-  getResources() {
-    return this.resourceSvc.getAll();
-  }
-}
-/* harmony export (immutable) */ __webpack_exports__["a"] = LibraryController;
+  _createClass(LibraryController, [{
+    key: "getResources",
+    value: function getResources() {
+      return this.resourceSvc.getAll();
+    }
+  }]);
 
+  return LibraryController;
+}();
+
+exports.default = LibraryController;
 
 /***/ }),
 /* 17 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__libraryList_component__ = __webpack_require__(18);
 
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-/* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('app.components.library.list', []).component('libraryList', __WEBPACK_IMPORTED_MODULE_1__libraryList_component__["a" /* default */]).name);
+var _angular = __webpack_require__(0);
+
+var _angular2 = _interopRequireDefault(_angular);
+
+var _libraryList = __webpack_require__(18);
+
+var _libraryList2 = _interopRequireDefault(_libraryList);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _angular2.default.module('app.components.library.list', []).component('libraryList', _libraryList2.default).name;
 
 /***/ }),
 /* 18 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__libraryList_controller__ = __webpack_require__(19);
 
 
-/* harmony default export */ __webpack_exports__["a"] = ({
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _libraryList = __webpack_require__(19);
+
+var _libraryList2 = _interopRequireDefault(_libraryList);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = {
   template: __webpack_require__(34),
-  controller: __WEBPACK_IMPORTED_MODULE_0__libraryList_controller__["a" /* default */],
+  controller: _libraryList2.default,
   bindings: {
     resources: '<'
   }
-});
+};
 
 /***/ }),
 /* 19 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-class LibraryListController {
-  constructor($scope) {
-    this.resources = $scope.resources;
-  }
-}
-/* harmony export (immutable) */ __webpack_exports__["a"] = LibraryListController;
 
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var LibraryListController = function LibraryListController($scope) {
+  _classCallCheck(this, LibraryListController);
+
+  this.resources = $scope.resources;
+};
+
+exports.default = LibraryListController;
 
 /***/ }),
 /* 20 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__libraryListResource_component__ = __webpack_require__(21);
 
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-/* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('app.components.library.listResource', []).directive('libraryListResource', __WEBPACK_IMPORTED_MODULE_1__libraryListResource_component__["a" /* default */]).name);
+var _angular = __webpack_require__(0);
+
+var _angular2 = _interopRequireDefault(_angular);
+
+var _libraryListResource = __webpack_require__(21);
+
+var _libraryListResource2 = _interopRequireDefault(_libraryListResource);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _angular2.default.module('app.components.library.listResource', []).directive('libraryListResource', _libraryListResource2.default).name;
 
 /***/ }),
 /* 21 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__libraryListResource_controller__ = __webpack_require__(22);
 
 
-/* harmony default export */ __webpack_exports__["a"] = (function () {
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+exports.default = function () {
   return {
     restrict: 'A',
     template: __webpack_require__(35),
-    controller: __WEBPACK_IMPORTED_MODULE_0__libraryListResource_controller__["a" /* default */],
+    controller: _libraryListResource2.default,
     controllerAs: '$ctrl',
     bindings: {
       resource: '<'
     }
   };
-});
+};
+
+var _libraryListResource = __webpack_require__(22);
+
+var _libraryListResource2 = _interopRequireDefault(_libraryListResource);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
 /* 22 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-class LibraryListResourceController {
-  constructor($scope, $rootScope, ResourceService, eventNames) {
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var LibraryListResourceController = function () {
+  function LibraryListResourceController($scope, $rootScope, ResourceService, eventNames) {
     'ngInject';
+
+    _classCallCheck(this, LibraryListResourceController);
 
     this.resourceSvc = ResourceService;
     this.$rootScope = $rootScope;
@@ -39260,35 +39432,61 @@ class LibraryListResourceController {
     this.resource = $scope.resource;
   }
 
-  removeItem() {
-    this.resourceSvc.remove(this.resource.key);
-    this.$rootScope.$broadcast(this.eventNames.lsRemove);
-  }
-}
-/* harmony export (immutable) */ __webpack_exports__["a"] = LibraryListResourceController;
+  _createClass(LibraryListResourceController, [{
+    key: 'removeItem',
+    value: function removeItem() {
+      this.resourceSvc.remove(this.resource.key);
+      this.$rootScope.$broadcast(this.eventNames.lsRemove);
+    }
+  }]);
 
+  return LibraryListResourceController;
+}();
+
+exports.default = LibraryListResourceController;
 
 /***/ }),
 /* 23 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__addResource_controller__ = __webpack_require__(24);
 
 
-/* harmony default export */ __webpack_exports__["a"] = ({
-  template: __webpack_require__(36),
-  controller: __WEBPACK_IMPORTED_MODULE_0__addResource_controller__["a" /* default */],
-  bindings: {}
+Object.defineProperty(exports, "__esModule", {
+  value: true
 });
+
+var _addResource = __webpack_require__(24);
+
+var _addResource2 = _interopRequireDefault(_addResource);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = {
+  template: __webpack_require__(36),
+  controller: _addResource2.default,
+  bindings: {}
+};
 
 /***/ }),
 /* 24 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-class AddResourceController {
-  constructor($rootScope, ResourceService, uuid, eventNames) {
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var AddResourceController = function () {
+  function AddResourceController($rootScope, ResourceService, uuid, eventNames) {
+    _classCallCheck(this, AddResourceController);
+
     this.resource = {
       key: uuid.v4()
     };
@@ -39299,92 +39497,127 @@ class AddResourceController {
   }
 
   // TODO: will allow duplicates-- alternative?
-  submit() {
-    // TODO: convert to promises
-    this.resourceSvc.upsert(this.resource);
 
-    this.$rootScope.$broadcast(this.eventNames.lsSet, this.resource);
 
-    // Reset form
-    for (const prop in this.resource) {
-      if (prop !== 'key') {
-        this.resource[prop] = '';
+  _createClass(AddResourceController, [{
+    key: 'submit',
+    value: function submit() {
+      // TODO: convert to promises
+      this.resourceSvc.upsert(this.resource);
+
+      this.$rootScope.$broadcast(this.eventNames.lsSet, this.resource);
+
+      // Reset form
+      for (var prop in this.resource) {
+        if (prop !== 'key') {
+          this.resource[prop] = '';
+        }
       }
+      this.resource.key = this.uuid.v4();
     }
-    this.resource.key = this.uuid.v4();
-  }
+  }, {
+    key: 'reset',
+    value: function reset(form) {
+      form.$setPristine();
+    }
+  }]);
 
-  reset(form) {
-    form.$setPristine();
-  }
+  return AddResourceController;
+}();
 
-}
-/* harmony export (immutable) */ __webpack_exports__["a"] = AddResourceController;
-
+exports.default = AddResourceController;
 
 /***/ }),
 /* 25 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__addResource_component__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__resource_service__ = __webpack_require__(1);
 
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
+var _angular = __webpack_require__(0);
 
-/* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('app.components.addResource', [__WEBPACK_IMPORTED_MODULE_2__resource_service__["a" /* default */]]).component('addResource', __WEBPACK_IMPORTED_MODULE_1__addResource_component__["a" /* default */]).name);
+var _angular2 = _interopRequireDefault(_angular);
+
+var _addResource = __webpack_require__(23);
+
+var _addResource2 = _interopRequireDefault(_addResource);
+
+var _resource = __webpack_require__(1);
+
+var _resource2 = _interopRequireDefault(_resource);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _angular2.default.module('app.components.addResource', [_resource2.default]).component('addResource', _addResource2.default).name;
 
 /***/ }),
 /* 26 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__addResource__ = __webpack_require__(25);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__resource_service__ = __webpack_require__(1);
 
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
+var _angular = __webpack_require__(0);
 
-/* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('app.components.resource', [__WEBPACK_IMPORTED_MODULE_1__addResource__["a" /* default */], __WEBPACK_IMPORTED_MODULE_2__resource_service__["a" /* default */]]).name);
+var _angular2 = _interopRequireDefault(_angular);
+
+var _addResource = __webpack_require__(25);
+
+var _addResource2 = _interopRequireDefault(_addResource);
+
+var _resource = __webpack_require__(1);
+
+var _resource2 = _interopRequireDefault(_resource);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _angular2.default.module('app.components.resource', [_addResource2.default, _resource2.default]).name;
 
 /***/ }),
 /* 27 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular_uuid__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular_uuid___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_angular_uuid__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular_ui_router__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular_ui_router___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_angular_ui_router__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_config__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_bootstrap_dist_css_bootstrap_min_css__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_bootstrap_dist_css_bootstrap_min_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_bootstrap_dist_css_bootstrap_min_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__index_css__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__index_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__index_css__);
 
 
+var _angular = __webpack_require__(0);
 
+var _angular2 = _interopRequireDefault(_angular);
 
+__webpack_require__(3);
 
+var _angularUiRouter = __webpack_require__(2);
 
+var _angularUiRouter2 = _interopRequireDefault(_angularUiRouter);
 
+var _app = __webpack_require__(4);
 
+var _app2 = _interopRequireDefault(_app);
 
-const eventNames = {
+var _components = __webpack_require__(5);
+
+var _components2 = _interopRequireDefault(_components);
+
+__webpack_require__(6);
+
+__webpack_require__(7);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var eventNames = {
   lsSet: 'LocalStorageModule.notification.setItem',
   lsRemove: 'LocalStorageModule.notification.removeItem'
 };
 
-__WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('app', [__WEBPACK_IMPORTED_MODULE_2_angular_ui_router___default.a, __WEBPACK_IMPORTED_MODULE_4__components__["a" /* default */], 'angular-uuid']).config(__WEBPACK_IMPORTED_MODULE_3__app_config__["a" /* default */]).constant('eventNames', eventNames);
+_angular2.default.module('app', [_angularUiRouter2.default, _components2.default, 'angular-uuid']).config(_app2.default).constant('eventNames', eventNames);
 
 /***/ }),
 /* 28 */
@@ -41427,7 +41660,7 @@ module.exports = "<table class=\"library-list table table-striped\">\n  <thead c
 /* 35 */
 /***/ (function(module, exports) {
 
-module.exports = "<td>{{$ctrl.resource.type}}</td>\n<td>{{$ctrl.resource.title}}</td>\n<td>{{$ctrl.resource.notes}}</td>\n<td><a ng-if=\"$ctrl.resource.link\" href=\"{{$ctrl.resource.link}}\">Link</a></td>\n<td><button class=\"btn btn-primary\">Edit</button><button class=\"btn btn-danger\" ng-click=\"$ctrl.removeItem()\">Remove</button></td>\n"
+module.exports = "<td>{{$ctrl.resource.type}}</td>\n<td>{{$ctrl.resource.title}}</td>\n<td>{{$ctrl.resource.notes}}</td>\n<td><a ng-if=\"$ctrl.resource.link\" href=\"{{$ctrl.resource.link}}\">Link</a></td>\n<td>\n  <button class=\"btn btn-primary btn-sm\">Edit</button>\n  <button class=\"btn btn-danger btn-sm\" ng-click=\"$ctrl.removeItem()\">Remove</button>\n</td>\n"
 
 /***/ }),
 /* 36 */
