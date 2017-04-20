@@ -46881,19 +46881,27 @@ function AppRoutes($stateProvider) {
   $stateProvider.state('home', {
     url: '/',
     component: 'home'
-  })
-  // .state('home.detail', {
-  //   url: 'detail/:resourceId',
-  //   component: 'editResource',
-  //   resolve: {
-  //     resource: (ResourceService, $transition$) => {
-  //       return ResourceService.get(
-  //         $transition$.params().resourceId
-  //       );
-  //     }
-  //   }
-  // })
-  ;
+  }).state('resource', {
+    abstract: true,
+    url: '/resource',
+    template: '<ui-view/>'
+  }).state('resource.add', {
+    url: '/new',
+    component: 'addResource',
+    resolve: {
+      resource: function resource(ResourceService, $transition$) {
+        return ResourceService.get($transition$.params().resourceId);
+      }
+    }
+  }).state('resource.edit', {
+    url: '/edit/:resourceId',
+    component: 'editResource',
+    resolve: {
+      resource: function resource(ResourceService, $transition$) {
+        return ResourceService.get($transition$.params().resourceId);
+      }
+    }
+  });
 }
 
 /***/ }),
@@ -47127,7 +47135,8 @@ var AddResourceController = function () {
     _classCallCheck(this, AddResourceController);
 
     this.resource = {
-      key: uuid.v4()
+      key: uuid.v4(),
+      type: 'book'
     };
     this.uuid = uuid;
     this.resourceSvc = ResourceService;
@@ -47143,6 +47152,8 @@ var AddResourceController = function () {
     value: function submit() {
       var _this = this;
 
+      this.resource.dateUpdated = Date.now();
+
       this.resourceSvc.upsert(this.resource).then(function () {
 
         _this.$rootScope.$broadcast(_this.eventNames.lsSet, _this.resource);
@@ -47154,6 +47165,7 @@ var AddResourceController = function () {
           }
         }
         _this.resource.key = _this.uuid.v4();
+        _this.resource.type = 'book';
       });
     }
   }, {
@@ -49365,19 +49377,19 @@ module.exports = Array.isArray || function (arr) {
 /* 87 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n  <h1 class=\"col-12\">Learning Library</h1>\n</div>\n\n<add-resource></add-resource>\n<library></library>\n"
+module.exports = "<div class=\"row\">\n  <h1 class=\"col-12\">Learning Library</h1>\n</div>\n\n<button ui-sref=\"resource.add\" class=\"btn btn-primary\">Add New Resource</button>\n<library></library>\n"
 
 /***/ }),
 /* 88 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n  <section class=\"library col-12\">\n    <h3>Resources</h3>\n    <table class=\"library-list table table-striped\" show-filter=\"true\" ng-table=\"$ctrl.resources\">\n      <tr ng-repeat=\"resource in $data track by resource.key\">\n        <td\n          data-title=\"'Type'\"\n          header-class=\"'text-left'\"\n          filter=\"{type: 'text'}\" \n          sortable=\"'type'\">\n          {{ resource.type }}\n        </td>\n        <td\n          data-title=\"'Title'\"\n          header-class=\"'text-left'\"\n          filter=\"{title: 'text'}\" \n          sortable=\"'title'\">\n          {{ resource.title }}\n        </td>\n        <td \n          data-title=\"'Notes'\"\n          header-class=\"'text-left'\"\n          filter=\"{notes: 'text'}\" \n          sortable=\"'notes'\">\n          {{ resource.notes }}\n        </td>\n        <td\n          data-title=\"'Link'\"\n          header-class=\"'text-left'\"\n          filter=\"{link: 'text'}\" \n          sortable=\"'link'\">\n          <a ng-if=\"resource.link\" href=\"{{resource.link}}\">Link</a>\n        </td>\n        <td>\n          <button class=\"btn btn-primary btn-sm\" ui-sref=\"home.detail({ resourceId: resource.key })\">Edit</button>\n          <button class=\"btn btn-danger btn-sm\" ng-click=\"$ctrl.removeItem(resource)\">Remove</button>\n        </td>\n      </tr>\n    </table>\n  </section>\n</div>\n"
+module.exports = "<div class=\"row\">\n  <section class=\"library col-12\">\n    <h3>Resources</h3>\n    <table class=\"library-list table table-striped\" show-filter=\"true\" ng-table=\"$ctrl.resources\">\n      <tr ng-repeat=\"resource in $data track by resource.key\">\n        <td\n          data-title=\"'Date Updated'\"\n          header-class=\"'text-left'\"\n          sortable=\"'number'\">\n          {{ resource.dateUpdated | date:'dd MMM yyyy' }}\n        </td>\n        <td\n          data-title=\"'Type'\"\n          header-class=\"'text-left'\"\n          filter=\"{type: 'text'}\" \n          sortable=\"'type'\">\n          {{ resource.type }}\n        </td>\n        <td\n          data-title=\"'Title'\"\n          header-class=\"'text-left'\"\n          filter=\"{title: 'text'}\" \n          sortable=\"'title'\">\n          {{ resource.title }}\n        </td>\n        <td \n          data-title=\"'Notes'\"\n          header-class=\"'text-left'\"\n          filter=\"{notes: 'text'}\" \n          sortable=\"'notes'\">\n          {{ resource.notes }}\n        </td>\n        <td\n          data-title=\"'Link'\"\n          header-class=\"'text-left'\">\n          <a ng-if=\"resource.link\" href=\"{{resource.link}}\">Link</a>\n        </td>\n        <td\n         data-title=\"'Manage'\"\n         header-class=\"'text-right'\"\n          >\n          <button class=\"btn btn-danger btn-sm float-right\" ng-click=\"$ctrl.removeItem(resource)\">Remove</button>\n          <button class=\"btn btn-primary btn-sm float-right\" ui-sref=\"resource.edit({ resourceId: resource.key })\">Edit</button>\n        </td>\n      </tr>\n    </table>\n  </section>\n</div>\n"
 
 /***/ }),
 /* 89 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n  <section class=\"add-resource col-12\">\n\n    <form name=\"addResourceForm\" ng-submit=\"$ctrl.submit()\" novalidate>\n\n      <select class=\"form-control\" ng-model=\"$ctrl.resource.type\">\n        <option value=\"\">Select Resource Type</option>\n        <option value=\"book\">Book</option>\n        <option value=\"site\">Site</option>\n        <option value=\"podcast\">Podcast</option>\n      </select>\n\n      <div class=\"form-group\">\n        <label for=\"resource-title\">Title</label>\n        <input\n               type=\"text\"\n               name=\"Title\"\n               ng-model=\"$ctrl.resource.title\"\n               class=\"form-control\"\n               id=\"resource-title\"\n               required>\n        <span class=\"alert alert-danger\" ng-show=\"addResourceForm.Title.$dirty && addResourceForm.Title.$invalid\">\n          <span ng-show=\"addResourceForm.Title.$error.required\">\n            REQUIRED.\n          </span>\n        </span>\n      </div>\n\n      <div class=\"form-group\">\n        <label for=\"resource-notes\">Notes</label><input type=\"text\" name=\"Notes\" ng-model=\"$ctrl.resource.notes\" class=\"form-control\" id=\"resource-notes\">\n      </div>\n\n      <div class=\"form-group\">\n        <label for=\"resource-link\">Link</label><input type=\"url\" name=\"Link\" ng-model=\"$ctrl.resource.link\" class=\"form-control\" id=\"resource-link\">\n        <span class=\"alert alert-danger\" ng-show=\"addResourceForm.Link.$dirty && addResourceForm.Link.$invalid\">\n          <span ng-show=\"addResourceForm.Link.$error.url\">\n            Not a valid url format.\n          </span>\n        </span>\n      </div>\n\n      <button class=\"btn btn-primary\" ng-click=\"$ctrl.reset(addResourceForm)\" ng-disabled=\"addResourceForm.$invalid\">Add</button>\n\n    </form>\n  </section>\n</div>\n"
+module.exports = "<div class=\"row\">\n  <section class=\"add-resource col-12\">\n    <button class=\"btn btn-secondary\" ui-sref=\"home\">Back</button>\n\n    <form name=\"addResourceForm\" ng-submit=\"$ctrl.submit()\" novalidate>\n\n      <div class=\"form-group\">\n        <label for=\"resource-type\">Type</label>\n        <select class=\"form-control\" id=\"resource-type\" ng-model=\"$ctrl.resource.type\" required>\n          <option value=\"book\">Book</option>\n          <option value=\"site\">Site</option>\n          <option value=\"podcast\">Podcast</option>\n        </select>\n      </div>\n\n      <div class=\"form-group\">\n        <label for=\"resource-title\">Title</label>\n        <input\n               type=\"text\"\n               name=\"Title\"\n               ng-model=\"$ctrl.resource.title\"\n               class=\"form-control\"\n               id=\"resource-title\"\n               required>\n        <span class=\"alert alert-danger\" ng-show=\"addResourceForm.Title.$dirty && addResourceForm.Title.$invalid\">\n          <span ng-show=\"addResourceForm.Title.$error.required\">\n            REQUIRED.\n          </span>\n        </span>\n      </div>\n\n      <div class=\"form-group\">\n        <label for=\"resource-notes\">Notes</label><input type=\"text\" name=\"Notes\" ng-model=\"$ctrl.resource.notes\" class=\"form-control\" id=\"resource-notes\">\n      </div>\n\n      <div class=\"form-group\">\n        <label for=\"resource-link\">Link</label><input type=\"url\" name=\"Link\" ng-model=\"$ctrl.resource.link\" class=\"form-control\" id=\"resource-link\">\n        <span class=\"alert alert-danger\" ng-show=\"addResourceForm.Link.$dirty && addResourceForm.Link.$invalid\">\n          <span ng-show=\"addResourceForm.Link.$error.url\">\n            Not a valid url format.\n          </span>\n        </span>\n      </div>\n\n      <button class=\"btn btn-primary\" ng-click=\"$ctrl.reset(addResourceForm)\" ng-disabled=\"addResourceForm.$invalid\">Add</button>\n\n    </form>\n  </section>\n</div>\n"
 
 /***/ }),
 /* 90 */
