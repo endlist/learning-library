@@ -63379,12 +63379,11 @@ var AddResourceController = function () {
 
         // Reset form values after success
         for (var prop in _this.resource) {
-          if (prop !== 'key') {
+          if (prop !== 'key' && prop !== 'type') {
             _this.resource[prop] = '';
           }
         }
         _this.resource.key = _this.uuid.v4();
-        _this.resource.type = DEFAULT_RESOURCE_TYPE;
       });
     }
   }, {
@@ -65880,7 +65879,7 @@ module.exports = "<div class=\"row\">\n  <h1 class=\"col-12\">Learning Library</
 /* 203 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n  <section class=\"library col-12\">\n    <h3>Resources</h3>\n    <table class=\"library-list table table-striped\" show-filter=\"true\" ng-table=\"$ctrl.resources\">\n      <tr ng-repeat=\"resource in $data track by resource.key\">\n        <td\n          data-title=\"'Date Updated'\"\n          header-class=\"'text-left'\"\n          sortable=\"'dateUpdated'\"\n          >\n          <span am-time-ago=\"resource.dateUpdated\"></span>\n        </td>\n        <td\n          data-title=\"'Type'\"\n          header-class=\"'text-left'\"\n          filter=\"{type: 'text'}\" \n          sortable=\"'type'\">\n          {{ resource.type }}\n        </td>\n        <td\n          data-title=\"'Title'\"\n          header-class=\"'text-left'\"\n          filter=\"{title: 'text'}\" \n          sortable=\"'title'\">\n          {{ resource.title }}\n        </td>\n        <td \n          data-title=\"'Notes'\"\n          header-class=\"'text-left'\"\n          filter=\"{notes: 'text'}\" \n          sortable=\"'notes'\">\n          {{ resource.notes }}\n        </td>\n        <td\n          data-title=\"'Link'\"\n          header-class=\"'text-left'\">\n          <a ng-if=\"resource.link\" href=\"{{resource.link}}\">Link</a>\n        </td>\n        <td\n         data-title=\"'Manage'\"\n         header-class=\"'text-right'\"\n          >\n          <button class=\"btn btn-danger btn-sm float-right\" ng-click=\"$ctrl.removeItem(resource)\">Remove</button>\n          <button class=\"btn btn-primary btn-sm float-right\" ui-sref=\"resource.edit({ resourceId: resource.key })\">Edit</button>\n        </td>\n      </tr>\n    </table>\n  </section>\n</div>\n"
+module.exports = "<div class=\"row\">\n  <section class=\"library col-12\">\n    <h3>Resources</h3>\n    <table class=\"library-list table table-striped\" show-filter=\"true\" ng-table=\"$ctrl.resources\">\n      <tr ng-repeat=\"resource in $data track by resource.key\">\n        <td\n          data-title=\"'Date Updated'\"\n          header-class=\"'text-left'\"\n          sortable=\"'dateUpdated'\"\n          >\n          <span am-time-ago=\"resource.dateUpdated\"></span>\n        </td>\n        <td\n          data-title=\"'Type'\"\n          header-class=\"'text-left'\"\n          filter=\"{type: 'text'}\" \n          sortable=\"'type'\">\n          {{ resource.type }}\n        </td>\n        <td\n          data-title=\"'Title'\"\n          header-class=\"'text-left'\"\n          filter=\"{title: 'text'}\" \n          sortable=\"'title'\">\n          <!-- link if one exists -->\n          <span ng-if=\"resource.link\">\n            <a ng-if=\"resource.link\" href=\"{{resource.link}}\">{{ resource.title }}</a>\n          </span>\n          <!-- don't link as default -->\n          <span ng-if=\"!resource.link\">\n            {{ resource.title }}\n          </span>\n        </td>\n        <td \n          data-title=\"'Notes'\"\n          header-class=\"'text-left'\"\n          filter=\"{notes: 'text'}\" \n          sortable=\"'notes'\">\n          {{ resource.notes }}\n        </td>\n        <td\n         data-title=\"'Manage'\"\n         header-class=\"'text-right'\"\n          >\n          <button class=\"btn btn-danger btn-sm float-right\" ng-click=\"$ctrl.removeItem(resource)\">Remove</button>\n          <button class=\"btn btn-primary btn-sm float-right\" ui-sref=\"resource.edit({ resourceId: resource.key })\">Edit</button>\n        </td>\n      </tr>\n    </table>\n  </section>\n</div>\n"
 
 /***/ }),
 /* 204 */
