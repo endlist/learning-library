@@ -63260,10 +63260,15 @@ Object.defineProperty(exports, "__esModule", {
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var LibraryCardsController = function LibraryCardsController() {
+var LibraryCardsController = function LibraryCardsController(ResourceService) {
+  var _this = this;
+
   _classCallCheck(this, LibraryCardsController);
 
-  console.log('my turn');
+  this.resourceSvc = ResourceService;
+  this.resourceSvc.getAll().then(function (resources) {
+    _this.resources = resources;
+  });
 };
 
 exports.default = LibraryCardsController;
@@ -63520,7 +63525,6 @@ var LibraryListController = function () {
         var data = angular.copy(resources);
         data = params.sorting() ? LibraryListControllerClass.$filter('orderBy')(resources, params.orderBy()) : resources;
         data = params.filter() && params.filter() !== '' ? LibraryListControllerClass.$filter('filter')(data, params.filter()) : data;
-        data = data.slice((params.page() - 1) * params.count(), params.page() * params.count());
         return data;
       });
     }
@@ -66128,7 +66132,7 @@ module.exports = "<div class=\"row\">\n  <h1 class=\"col-12\">Learning Library</
 /* 209 */
 /***/ (function(module, exports) {
 
-module.exports = "<div>This is the card version</div>\n"
+module.exports = "<div class=\"card-deck-wrapper\">\n<div class=\"card-deck\">\n  <div class=\"card\" ng-repeat=\"resource in $ctrl.resources\">\n    <img class=\"card-img-top img-responsive\" src=\"http://placehold.it/250x150\">\n    <div class=\"card-block\">\n      <h4 class=\"card-header\">\n        <!-- link if one exists -->\n        <span ng-if=\"resource.link\">\n          <a ng-if=\"resource.link\" href=\"{{resource.link}}\">{{ resource.title }}</a>\n        </span>\n        <!-- don't link as default -->\n        <span ng-if=\"!resource.link\">\n          {{ resource.title }}\n        </span>\n      </h4>\n      <p class=\"card-text\">{{resource.notes}}</p>\n    </div>\n  </div>\n</div>\n</div>\n"
 
 /***/ }),
 /* 210 */
