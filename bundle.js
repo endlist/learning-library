@@ -73,7 +73,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/learning-library/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 196);
+/******/ 	return __webpack_require__(__webpack_require__.s = 202);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -1909,7 +1909,7 @@ function loadLocale(name) {
             module && module.exports) {
         try {
             oldLocale = globalLocale._abbr;
-            __webpack_require__(201)("./" + name);
+            __webpack_require__(207)("./" + name);
             // because defineLocale currently also sets the global locale, we
             // want to undo that for lazy loaded locales
             getSetGlobalLocale(oldLocale);
@@ -4544,7 +4544,7 @@ return hooks;
 
 })));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(221)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(229)(module)))
 
 /***/ }),
 /* 1 */
@@ -5488,6 +5488,14 @@ exports.services = services;
 /* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
+__webpack_require__(184);
+module.exports = angular;
+
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 /**
  * @coreapi
@@ -5497,26 +5505,18 @@ exports.services = services;
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
-__export(__webpack_require__(206));
-__export(__webpack_require__(213));
 __export(__webpack_require__(214));
-__export(__webpack_require__(215));
-__export(__webpack_require__(216));
-__export(__webpack_require__(217));
-__export(__webpack_require__(218));
-__export(__webpack_require__(219));
+__export(__webpack_require__(221));
+__export(__webpack_require__(222));
+__export(__webpack_require__(223));
+__export(__webpack_require__(224));
+__export(__webpack_require__(225));
+__export(__webpack_require__(226));
+__export(__webpack_require__(227));
 __export(__webpack_require__(146));
 __export(__webpack_require__(151));
-__export(__webpack_require__(212));
+__export(__webpack_require__(220));
 //# sourceMappingURL=index.js.map
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(184);
-module.exports = angular;
-
 
 /***/ }),
 /* 7 */
@@ -5800,7 +5800,7 @@ exports.TargetState = TargetState;
 
 "use strict";
 
-var ng_from_import = __webpack_require__(6);
+var ng_from_import = __webpack_require__(5);
 var ng_from_global = angular;
 exports.ng = (ng_from_import && ng_from_import.module) ? ng_from_import : ng_from_global;
 //# sourceMappingURL=angular.js.map
@@ -6640,7 +6640,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _angular = __webpack_require__(6);
+var _angular = __webpack_require__(5);
 
 var _angular2 = _interopRequireDefault(_angular);
 
@@ -7746,7 +7746,7 @@ exports.UrlMatcher = UrlMatcher;
  */
 /** for typedoc */
 var angular_1 = __webpack_require__(9);
-var ui_router_core_1 = __webpack_require__(5);
+var ui_router_core_1 = __webpack_require__(6);
 var views_1 = __webpack_require__(23);
 var templateFactory_1 = __webpack_require__(181);
 var stateProvider_1 = __webpack_require__(30);
@@ -7854,7 +7854,7 @@ exports.getLocals = function (ctx) {
 
 "use strict";
 
-var ui_router_core_1 = __webpack_require__(5);
+var ui_router_core_1 = __webpack_require__(6);
 function getNg1ViewConfigFactory() {
     var templateFactory = null;
     return function (path, view) {
@@ -9012,11 +9012,11 @@ exports.Transition = Transition;
 var interface_1 = __webpack_require__(13);
 var transition_1 = __webpack_require__(28);
 var hookRegistry_1 = __webpack_require__(27);
-var resolve_1 = __webpack_require__(209);
-var views_1 = __webpack_require__(211);
-var url_1 = __webpack_require__(210);
-var redirectTo_1 = __webpack_require__(208);
-var onEnterExitRetain_1 = __webpack_require__(207);
+var resolve_1 = __webpack_require__(217);
+var views_1 = __webpack_require__(219);
+var url_1 = __webpack_require__(218);
+var redirectTo_1 = __webpack_require__(216);
+var onEnterExitRetain_1 = __webpack_require__(215);
 var lazyLoad_1 = __webpack_require__(147);
 var transitionEventType_1 = __webpack_require__(158);
 var transitionHook_1 = __webpack_require__(15);
@@ -9248,7 +9248,7 @@ exports.TransitionService = TransitionService;
 "use strict";
 
 /** @module ng1 */ /** for typedoc */
-var ui_router_core_1 = __webpack_require__(5);
+var ui_router_core_1 = __webpack_require__(6);
 /**
  * @ngdoc object
  * @name ui.router.state.$stateProvider
@@ -23989,7 +23989,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 	var isElectron = window && window.process && window.process.type;
 	if (true) {
-		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(6), __webpack_require__(0)], __WEBPACK_AMD_DEFINE_FACTORY__ = (angularMoment),
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(5), __webpack_require__(0)], __WEBPACK_AMD_DEFINE_FACTORY__ = (angularMoment),
 				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
 				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -24014,9 +24014,9 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
-var core = __webpack_require__(5);
+var core = __webpack_require__(6);
 exports.core = core;
-__export(__webpack_require__(5));
+__export(__webpack_require__(6));
 __export(__webpack_require__(22));
 __export(__webpack_require__(23));
 __export(__webpack_require__(30));
@@ -24285,7 +24285,7 @@ if (typeof module !== 'undefined' && module.exports) {
 } else {
   AngularUUID();
 }
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(198).Buffer))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(204).Buffer))
 
 /***/ }),
 /* 167 */
@@ -24315,15 +24315,15 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _angular = __webpack_require__(6);
+var _angular = __webpack_require__(5);
 
 var _angular2 = _interopRequireDefault(_angular);
 
-var _resource = __webpack_require__(195);
+var _resource = __webpack_require__(201);
 
 var _resource2 = _interopRequireDefault(_resource);
 
-var _library = __webpack_require__(186);
+var _library = __webpack_require__(189);
 
 var _library2 = _interopRequireDefault(_library);
 
@@ -24359,7 +24359,7 @@ exports.default = _angular2.default.module('app.components', [_resource2.default
 
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(true)
-		module.exports = factory(__webpack_require__(6));
+		module.exports = factory(__webpack_require__(5));
 	else if(typeof define === 'function' && define.amd)
 		define(["angular"], factory);
 	else if(typeof exports === 'object')
@@ -27909,7 +27909,7 @@ module.exports = 'LocalStorageModule';
  * @module directives
  */ /** for typedoc */
 var angular_1 = __webpack_require__(9);
-var ui_router_core_1 = __webpack_require__(5);
+var ui_router_core_1 = __webpack_require__(6);
 /** @hidden */
 function parseStateRef(ref) {
     var paramsOnly = ref.match(/^\s*({[^}]*})\s*$/), parsed;
@@ -28438,8 +28438,8 @@ angular_1.ng.module('ui.router.state')
  * @module directives
  */ /** for typedoc */
 var angular_1 = __webpack_require__(9);
-var angular_2 = __webpack_require__(6);
-var ui_router_core_1 = __webpack_require__(5);
+var angular_2 = __webpack_require__(5);
+var ui_router_core_1 = __webpack_require__(6);
 var views_1 = __webpack_require__(23);
 var services_1 = __webpack_require__(22);
 /**
@@ -29199,7 +29199,7 @@ var $urlMatcherFactoryProvider;
 
 "use strict";
 
-var ui_router_core_1 = __webpack_require__(5);
+var ui_router_core_1 = __webpack_require__(6);
 /**
  * Implements UI-Router LocationServices and LocationConfig using Angular 1's $location service
  */
@@ -29329,7 +29329,7 @@ angular_1.ng.module('ui.router.state')
 "use strict";
 
 /** @module ng1 */ /** */
-var ui_router_core_1 = __webpack_require__(5);
+var ui_router_core_1 = __webpack_require__(6);
 var services_1 = __webpack_require__(22);
 /**
  * This is a [[StateBuilder.builder]] function for angular1 `onEnter`, `onExit`,
@@ -29361,7 +29361,7 @@ exports.getStateHookBuilder = function (hookName) {
 /** @module view */
 /** for typedoc */
 var angular_1 = __webpack_require__(9);
-var ui_router_core_1 = __webpack_require__(5);
+var ui_router_core_1 = __webpack_require__(6);
 /**
  * Service which manages loading of templates from a ViewConfig.
  */
@@ -29551,8 +29551,8 @@ var scopeBindings = function (bindingsObj) { return Object.keys(bindingsObj || {
 "use strict";
 
 /** @module url */ /** */
-var ui_router_core_1 = __webpack_require__(5);
-var ui_router_core_2 = __webpack_require__(5);
+var ui_router_core_1 = __webpack_require__(6);
+var ui_router_core_2 = __webpack_require__(6);
 /**
  * Manages rules for client-side URL
  *
@@ -63172,11 +63172,44 @@ exports.default = AppRoutes;
 function AppRoutes($stateProvider) {
   $stateProvider.state('home', {
     url: '/',
-    template: __webpack_require__(202)
+    views: {
+      'header': {
+        template: __webpack_require__(208)
+      },
+      'interaction@home': {
+        template: '<ui-view/>'
+      },
+      'library': {
+        component: 'library'
+      }
+    }
+  }).state('library', {
+    parent: 'home',
+    url: 'library',
+    abstract: true
+  }).state('library.list', {
+    url: '/list',
+    views: {
+      'libraryView@home': {
+        component: 'libraryList'
+      }
+    }
+  }).state('library.cards', {
+    url: '/cards',
+    views: {
+      'libraryView@home': {
+        component: 'libraryCards'
+      }
+    }
   }).state('resource', {
+    parent: 'home',
     abstract: true,
-    url: '/resource',
-    template: '<ui-view/>'
+    url: 'resource',
+    views: {
+      'interaction@home': {
+        template: '<ui-view/>'
+      }
+    }
   }).state('resource.add', {
     url: '/new',
     component: 'addResource'
@@ -63202,21 +63235,17 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _angular = __webpack_require__(6);
+var _cards = __webpack_require__(187);
 
-var _angular2 = _interopRequireDefault(_angular);
-
-var _library = __webpack_require__(187);
-
-var _library2 = _interopRequireDefault(_library);
-
-var _resource = __webpack_require__(16);
-
-var _resource2 = _interopRequireDefault(_resource);
+var _cards2 = _interopRequireDefault(_cards);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = _angular2.default.module('app.components.library', [_resource2.default]).component('library', _library2.default).name;
+exports.default = {
+  template: __webpack_require__(209),
+  controller: _cards2.default,
+  bindings: {}
+};
 
 /***/ }),
 /* 187 */
@@ -63229,20 +63258,99 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _library = __webpack_require__(188);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var LibraryCardsController = function LibraryCardsController() {
+  _classCallCheck(this, LibraryCardsController);
+
+  console.log('my turn');
+};
+
+exports.default = LibraryCardsController;
+
+/***/ }),
+/* 188 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _angular = __webpack_require__(5);
+
+var _angular2 = _interopRequireDefault(_angular);
+
+var _cards = __webpack_require__(186);
+
+var _cards2 = _interopRequireDefault(_cards);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _angular2.default.module('app.components.library.cards', []).component('libraryCards', _cards2.default).name;
+
+/***/ }),
+/* 189 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _angular = __webpack_require__(5);
+
+var _angular2 = _interopRequireDefault(_angular);
+
+var _library = __webpack_require__(190);
+
+var _library2 = _interopRequireDefault(_library);
+
+var _resource = __webpack_require__(16);
+
+var _resource2 = _interopRequireDefault(_resource);
+
+var _list = __webpack_require__(192);
+
+var _list2 = _interopRequireDefault(_list);
+
+var _cards = __webpack_require__(188);
+
+var _cards2 = _interopRequireDefault(_cards);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _angular2.default.module('app.components.library', [_resource2.default, _list2.default, _cards2.default]).component('library', _library2.default).name;
+
+/***/ }),
+/* 190 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _library = __webpack_require__(191);
 
 var _library2 = _interopRequireDefault(_library);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
-  template: __webpack_require__(203),
+  template: __webpack_require__(210),
   controller: _library2.default,
   bindings: {}
 };
 
 /***/ }),
-/* 188 */
+/* 191 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63313,7 +63421,7 @@ var LibraryController = function () {
 exports.default = LibraryController;
 
 /***/ }),
-/* 189 */
+/* 192 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63323,20 +63431,137 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _addResource = __webpack_require__(190);
+var _angular = __webpack_require__(5);
+
+var _angular2 = _interopRequireDefault(_angular);
+
+var _list = __webpack_require__(193);
+
+var _list2 = _interopRequireDefault(_list);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _angular2.default.module('app.components.library.list', []).component('libraryList', _list2.default).name;
+
+/***/ }),
+/* 193 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _list = __webpack_require__(194);
+
+var _list2 = _interopRequireDefault(_list);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = {
+  template: __webpack_require__(211),
+  controller: _list2.default,
+  bindings: {}
+};
+
+/***/ }),
+/* 194 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var LibraryListControllerClass = void 0;
+
+var LibraryListController = function () {
+  function LibraryListController($state, $scope, $rootScope, ResourceService, eventNames, NgTableParams, $filter) {
+    var _this = this;
+
+    _classCallCheck(this, LibraryListController);
+
+    LibraryListControllerClass = this;
+    this.$rootScope = $rootScope;
+    this.eventNames = eventNames;
+    this.$filter = $filter;
+    this.resourceSvc = ResourceService;
+    this.resources = new NgTableParams({
+      sorting: { title: 'asc' },
+      page: 1
+    }, {
+      counts: [],
+      total: 1,
+      getData: this.getResources
+    });
+
+    $scope.$on(eventNames.lsSet, function (event, val) {
+      _this.resources.reload();
+    });
+
+    $scope.$on(eventNames.lsRemove, function (event, val) {
+      _this.resources.reload();
+    });
+  }
+
+  _createClass(LibraryListController, [{
+    key: 'getResources',
+    value: function getResources(params) {
+      return LibraryListControllerClass.resourceSvc.getAll().then(function (resources) {
+        // TODO: filtering is slow, need to optimize
+        var data = angular.copy(resources);
+        data = params.sorting() ? LibraryListControllerClass.$filter('orderBy')(resources, params.orderBy()) : resources;
+        data = params.filter() && params.filter() !== '' ? LibraryListControllerClass.$filter('filter')(data, params.filter()) : data;
+        data = data.slice((params.page() - 1) * params.count(), params.page() * params.count());
+        return data;
+      });
+    }
+  }, {
+    key: 'removeItem',
+    value: function removeItem(resource) {
+      this.resourceSvc.remove(resource.key);
+      this.$rootScope.$broadcast(this.eventNames.lsRemove);
+    }
+  }]);
+
+  return LibraryListController;
+}();
+
+exports.default = LibraryListController;
+
+/***/ }),
+/* 195 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _addResource = __webpack_require__(196);
 
 var _addResource2 = _interopRequireDefault(_addResource);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
-  template: __webpack_require__(204),
+  template: __webpack_require__(212),
   controller: _addResource2.default,
   bindings: {}
 };
 
 /***/ }),
-/* 190 */
+/* 196 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63400,7 +63625,7 @@ var AddResourceController = function () {
 exports.default = AddResourceController;
 
 /***/ }),
-/* 191 */
+/* 197 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63410,11 +63635,11 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _angular = __webpack_require__(6);
+var _angular = __webpack_require__(5);
 
 var _angular2 = _interopRequireDefault(_angular);
 
-var _addResource = __webpack_require__(189);
+var _addResource = __webpack_require__(195);
 
 var _addResource2 = _interopRequireDefault(_addResource);
 
@@ -63427,7 +63652,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.default = _angular2.default.module('app.components.resource.add', [_resource2.default]).component('addResource', _addResource2.default).name;
 
 /***/ }),
-/* 192 */
+/* 198 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63437,14 +63662,14 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _editResource = __webpack_require__(193);
+var _editResource = __webpack_require__(199);
 
 var _editResource2 = _interopRequireDefault(_editResource);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
-  template: __webpack_require__(205),
+  template: __webpack_require__(213),
   controller: _editResource2.default,
   bindings: {
     resource: '<'
@@ -63452,7 +63677,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 193 */
+/* 199 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63497,7 +63722,7 @@ var EditResourceController = function () {
 exports.default = EditResourceController;
 
 /***/ }),
-/* 194 */
+/* 200 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63507,11 +63732,11 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _angular = __webpack_require__(6);
+var _angular = __webpack_require__(5);
 
 var _angular2 = _interopRequireDefault(_angular);
 
-var _editResource = __webpack_require__(192);
+var _editResource = __webpack_require__(198);
 
 var _editResource2 = _interopRequireDefault(_editResource);
 
@@ -63524,7 +63749,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.default = _angular2.default.module('app.components.resource.edit', [_resource2.default]).component('editResource', _editResource2.default).name;
 
 /***/ }),
-/* 195 */
+/* 201 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63534,7 +63759,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _angular = __webpack_require__(6);
+var _angular = __webpack_require__(5);
 
 var _angular2 = _interopRequireDefault(_angular);
 
@@ -63542,11 +63767,11 @@ var _resource = __webpack_require__(16);
 
 var _resource2 = _interopRequireDefault(_resource);
 
-var _addResource = __webpack_require__(191);
+var _addResource = __webpack_require__(197);
 
 var _addResource2 = _interopRequireDefault(_addResource);
 
-var _editResource = __webpack_require__(194);
+var _editResource = __webpack_require__(200);
 
 var _editResource2 = _interopRequireDefault(_editResource);
 
@@ -63555,13 +63780,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.default = _angular2.default.module('app.components.resource', [_resource2.default, _addResource2.default, _editResource2.default]).name;
 
 /***/ }),
-/* 196 */
+/* 202 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _angular = __webpack_require__(6);
+var _angular = __webpack_require__(5);
 
 var _angular2 = _interopRequireDefault(_angular);
 
@@ -63596,10 +63821,34 @@ var eventNames = {
   lsRemove: 'LocalStorageModule.notification.removeItem'
 };
 
-_angular2.default.module('app', [_angularUiRouter2.default, _components2.default, 'angular-uuid', 'angularMoment', _ngTable.ngTableModule.name]).config(_app2.default).constant('eventNames', eventNames);
+_angular2.default.module('app', [_angularUiRouter2.default, _components2.default, 'angular-uuid', 'angularMoment', _ngTable.ngTableModule.name]).config(_app2.default).constant('eventNames', eventNames).run(function ($rootScope) {
+  // Credits: Adam's answer in http://stackoverflow.com/a/20786262/69362
+  // Paste this in browser's console
+  $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+    console.log('$stateChangeStart to ' + toState.to + '- fired when the transition begins. toState,toParams : \n', toState, toParams);
+  });
+
+  $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams) {
+    console.log('$stateChangeError - fired when an error occurs during transition.');
+    console.log(arguments);
+  });
+
+  $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
+    console.log('$stateChangeSuccess to ' + toState.name + '- fired once the state transition is complete.');
+  });
+
+  $rootScope.$on('$viewContentLoaded', function (event) {
+    console.log('$viewContentLoaded - fired after dom rendered', event);
+  });
+
+  $rootScope.$on('$stateNotFound', function (event, unfoundState, fromState, fromParams) {
+    console.log('$stateNotFound ' + unfoundState.to + '  - fired when a state cannot be found by its name.');
+    console.log(unfoundState, fromState, fromParams);
+  });
+});
 
 /***/ }),
-/* 197 */
+/* 203 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63720,7 +63969,7 @@ function fromByteArray (uint8) {
 
 
 /***/ }),
-/* 198 */
+/* 204 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63734,9 +63983,9 @@ function fromByteArray (uint8) {
 
 
 
-var base64 = __webpack_require__(197)
-var ieee754 = __webpack_require__(199)
-var isArray = __webpack_require__(200)
+var base64 = __webpack_require__(203)
+var ieee754 = __webpack_require__(205)
+var isArray = __webpack_require__(206)
 
 exports.Buffer = Buffer
 exports.SlowBuffer = SlowBuffer
@@ -65514,10 +65763,10 @@ function isnan (val) {
   return val !== val // eslint-disable-line no-self-compare
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(220)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(228)))
 
 /***/ }),
-/* 199 */
+/* 205 */
 /***/ (function(module, exports) {
 
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
@@ -65607,7 +65856,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
 
 
 /***/ }),
-/* 200 */
+/* 206 */
 /***/ (function(module, exports) {
 
 var toString = {}.toString;
@@ -65618,7 +65867,7 @@ module.exports = Array.isArray || function (arr) {
 
 
 /***/ }),
-/* 201 */
+/* 207 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
@@ -65867,34 +66116,46 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 201;
+webpackContext.id = 207;
 
 /***/ }),
-/* 202 */
+/* 208 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n  <h1 class=\"col-12\">Learning Library</h1>\n</div>\n\n<button ui-sref=\"resource.add\" class=\"btn btn-primary\">Add New Resource</button>\n<library></library>\n"
+module.exports = "<div class=\"row\">\n  <h1 class=\"col-12\">Learning Library</h1>\n</div>\n\n<button ui-sref=\"resource.add\" class=\"btn btn-primary\">Add New Resource</button>\n<div ui-view=\"interaction\"></div>\n"
 
 /***/ }),
-/* 203 */
+/* 209 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n  <section class=\"library col-12\">\n    <h3>Resources</h3>\n    <table class=\"library-list table table-striped\" show-filter=\"true\" ng-table=\"$ctrl.resources\">\n      <tr ng-repeat=\"resource in $data track by resource.key\">\n        <td\n          data-title=\"'Date Updated'\"\n          header-class=\"'text-left'\"\n          sortable=\"'dateUpdated'\"\n          >\n          <span am-time-ago=\"resource.dateUpdated\"></span>\n        </td>\n        <td\n          data-title=\"'Type'\"\n          header-class=\"'text-left'\"\n          filter=\"{type: 'text'}\" \n          sortable=\"'type'\">\n          {{ resource.type }}\n        </td>\n        <td\n          data-title=\"'Title'\"\n          header-class=\"'text-left'\"\n          filter=\"{title: 'text'}\" \n          sortable=\"'title'\">\n          <!-- link if one exists -->\n          <span ng-if=\"resource.link\">\n            <a ng-if=\"resource.link\" href=\"{{resource.link}}\">{{ resource.title }}</a>\n          </span>\n          <!-- don't link as default -->\n          <span ng-if=\"!resource.link\">\n            {{ resource.title }}\n          </span>\n        </td>\n        <td \n          data-title=\"'Notes'\"\n          header-class=\"'text-left'\"\n          filter=\"{notes: 'text'}\" \n          sortable=\"'notes'\">\n          {{ resource.notes }}\n        </td>\n        <td\n         data-title=\"'Manage'\"\n         header-class=\"'text-right'\"\n          >\n          <button class=\"btn btn-danger btn-sm float-right\" ng-click=\"$ctrl.removeItem(resource)\">Remove</button>\n          <button class=\"btn btn-primary btn-sm float-right\" ui-sref=\"resource.edit({ resourceId: resource.key })\">Edit</button>\n        </td>\n      </tr>\n    </table>\n  </section>\n</div>\n"
+module.exports = "<div>This is the card version</div>\n"
 
 /***/ }),
-/* 204 */
+/* 210 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n  <section class=\"add-resource col-12\">\n\n    <h1>Add Resource</h1>\n\n    <form name=\"addResourceForm\" ng-submit=\"$ctrl.submit()\" novalidate>\n\n      <div class=\"form-group\">\n        <label for=\"resource-type\">Type</label>\n        <select class=\"form-control\" id=\"resource-type\" ng-model=\"$ctrl.resource.type\" required>\n          <option value=\"Book\">Book</option>\n          <option value=\"Site\">Site</option>\n          <option value=\"Podcast\">Podcast</option>\n        </select>\n      </div>\n\n      <div class=\"form-group\">\n        <label for=\"resource-title\">Title</label>\n        <input\n               type=\"text\"\n               name=\"Title\"\n               ng-model=\"$ctrl.resource.title\"\n               class=\"form-control\"\n               id=\"resource-title\"\n               required>\n        <span class=\"alert alert-danger\" ng-show=\"addResourceForm.Title.$dirty && addResourceForm.Title.$invalid\">\n          <span ng-show=\"addResourceForm.Title.$error.required\">\n            REQUIRED.\n          </span>\n        </span>\n      </div>\n\n      <div class=\"form-group\">\n        <label for=\"resource-notes\">Notes</label><input type=\"text\" name=\"Notes\" ng-model=\"$ctrl.resource.notes\" class=\"form-control\" id=\"resource-notes\">\n      </div>\n\n      <div class=\"form-group\">\n        <label for=\"resource-link\">Link</label><input type=\"url\" name=\"Link\" ng-model=\"$ctrl.resource.link\" class=\"form-control\" id=\"resource-link\">\n        <span class=\"alert alert-danger\" ng-show=\"addResourceForm.Link.$dirty && addResourceForm.Link.$invalid\">\n          <span ng-show=\"addResourceForm.Link.$error.url\">\n            Not a valid url format.\n          </span>\n        </span>\n      </div>\n\n      <button class=\"btn btn-primary\" ng-click=\"$ctrl.reset(addResourceForm)\" ng-disabled=\"addResourceForm.$invalid\">Add</button>\n      <button class=\"btn btn-secondary\" ui-sref=\"home\">Cancel</button>\n\n    </form>\n  </section>\n</div>\n"
+module.exports = "<div class=\"row\">\n  <section class=\"library col-12\">\n    <h3>Resources</h3>\n    <button ui-sref=\"library.cards\" class=\"btn btn-secondary\">Cards</button>\n    <button ui-sref=\"library.list\" class=\"btn btn-secondary\">List</button>\n    <div ui-view=\"libraryView\">\n      <library-list><library-list>\n    </div>\n  </section>\n</div>\n"
 
 /***/ }),
-/* 205 */
+/* 211 */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Edit Resource</h1>\n<form name=\"editResourceForm\" ng-submit=\"$ctrl.submit()\" novalidate>\n  <div class=\"form-group\">\n    <label for=\"resource-title\">Title</label>\n    <input\n           type=\"text\"\n           name=\"Title\"\n           ng-model=\"$ctrl.resource.title\"\n           class=\"form-control\"\n           id=\"resource-title\"\n           required>\n    <span class=\"alert alert-danger\" ng-show=\"editResourceForm.Title.$dirty && editResourceForm.Title.$invalid\">\n      <span ng-show=\"editResourceForm.Title.$error.required\">\n        REQUIRED.\n      </span>\n    </span>\n  </div>\n\n  <div class=\"form-group\">\n    <label for=\"resource-notes\">Notes</label><input type=\"text\" name=\"Notes\" ng-model=\"$ctrl.resource.notes\" class=\"form-control\" id=\"resource-notes\">\n  </div>\n\n  <div class=\"form-group\">\n    <label for=\"resource-link\">Link</label><input type=\"url\" name=\"Link\" ng-model=\"$ctrl.resource.link\" class=\"form-control\" id=\"resource-link\">\n    <span class=\"alert alert-danger\" ng-show=\"editResourceForm.Link.$dirty && editResourceForm.Link.$invalid\">\n      <span ng-show=\"editResourceForm.Link.$error.url\">\n        Not a valid url format.\n      </span>\n    </span>\n  </div>\n\n  <button class=\"btn btn-primary\" ng-click=\"$ctrl.submit(editResourceForm)\" ng-disabled=\"editResourceForm.$invalid\" ui-sref=\"home\">Save</button>\n  <button class=\"btn btn-secondary\" ui-sref=\"home\">Cancel</button>\n</form>\n\n\n"
+module.exports = "<table class=\"library-list table table-striped\" show-filter=\"true\" ng-table=\"$ctrl.resources\">\n  <tr ng-repeat=\"resource in $data track by resource.key\">\n    <td\n      data-title=\"'Date Updated'\"\n      header-class=\"'text-left'\"\n      sortable=\"'dateUpdated'\"\n      >\n      <span am-time-ago=\"resource.dateUpdated\"></span>\n    </td>\n    <td\n      data-title=\"'Type'\"\n      header-class=\"'text-left'\"\n      filter=\"{type: 'text'}\" \n      sortable=\"'type'\">\n      {{ resource.type }}\n    </td>\n    <td\n      data-title=\"'Title'\"\n      header-class=\"'text-left'\"\n      filter=\"{title: 'text'}\" \n      sortable=\"'title'\">\n      <!-- link if one exists -->\n      <span ng-if=\"resource.link\">\n        <a ng-if=\"resource.link\" href=\"{{resource.link}}\">{{ resource.title }}</a>\n      </span>\n      <!-- don't link as default -->\n      <span ng-if=\"!resource.link\">\n        {{ resource.title }}\n      </span>\n    </td>\n    <td \n      data-title=\"'Notes'\"\n      header-class=\"'text-left'\"\n      filter=\"{notes: 'text'}\" \n      sortable=\"'notes'\">\n      {{ resource.notes }}\n    </td>\n    <td\n     data-title=\"'Manage'\"\n     header-class=\"'text-right'\"\n      >\n      <button class=\"btn btn-danger btn-sm float-right\" ng-click=\"$ctrl.removeItem(resource)\">Remove</button>\n      <button class=\"btn btn-primary btn-sm float-right\" ui-sref=\"resource.edit({ resourceId: resource.key })\">Edit</button>\n    </td>\n  </tr>\n</table>\n"
 
 /***/ }),
-/* 206 */
+/* 212 */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"row\">\n  <section class=\"add-resource col-12\">\n\n    <h2>Add Resource</h2>\n\n    <form name=\"addResourceForm\" ng-submit=\"$ctrl.submit()\" novalidate>\n\n      <div class=\"form-group\">\n        <label for=\"resource-type\">Type</label>\n        <select class=\"form-control\" id=\"resource-type\" ng-model=\"$ctrl.resource.type\" required>\n          <option value=\"Book\">Book</option>\n          <option value=\"Site\">Site</option>\n          <option value=\"Podcast\">Podcast</option>\n        </select>\n      </div>\n\n      <div class=\"form-group\">\n        <label for=\"resource-title\">Title</label>\n        <input\n               type=\"text\"\n               name=\"Title\"\n               ng-model=\"$ctrl.resource.title\"\n               class=\"form-control\"\n               id=\"resource-title\"\n               required>\n        <span class=\"alert alert-danger\" ng-show=\"addResourceForm.Title.$dirty && addResourceForm.Title.$invalid\">\n          <span ng-show=\"addResourceForm.Title.$error.required\">\n            REQUIRED.\n          </span>\n        </span>\n      </div>\n\n      <div class=\"form-group\">\n        <label for=\"resource-notes\">Notes</label><input type=\"text\" name=\"Notes\" ng-model=\"$ctrl.resource.notes\" class=\"form-control\" id=\"resource-notes\">\n      </div>\n\n      <div class=\"form-group\">\n        <label for=\"resource-link\">Link</label><input type=\"url\" name=\"Link\" ng-model=\"$ctrl.resource.link\" class=\"form-control\" id=\"resource-link\">\n        <span class=\"alert alert-danger\" ng-show=\"addResourceForm.Link.$dirty && addResourceForm.Link.$invalid\">\n          <span ng-show=\"addResourceForm.Link.$error.url\">\n            Not a valid url format.\n          </span>\n        </span>\n      </div>\n\n      <button class=\"btn btn-primary\" ng-click=\"$ctrl.reset(addResourceForm)\" ng-disabled=\"addResourceForm.$invalid\">Add</button>\n      <button class=\"btn btn-secondary\" ui-sref=\"home\">Cancel</button>\n\n    </form>\n  </section>\n</div>\n"
+
+/***/ }),
+/* 213 */
+/***/ (function(module, exports) {
+
+module.exports = "<h2>Edit Resource</h2>\n<form name=\"editResourceForm\" ng-submit=\"$ctrl.submit()\" novalidate>\n  <div class=\"form-group\">\n    <label for=\"resource-title\">Title</label>\n    <input\n           type=\"text\"\n           name=\"Title\"\n           ng-model=\"$ctrl.resource.title\"\n           class=\"form-control\"\n           id=\"resource-title\"\n           required>\n    <span class=\"alert alert-danger\" ng-show=\"editResourceForm.Title.$dirty && editResourceForm.Title.$invalid\">\n      <span ng-show=\"editResourceForm.Title.$error.required\">\n        REQUIRED.\n      </span>\n    </span>\n  </div>\n\n  <div class=\"form-group\">\n    <label for=\"resource-notes\">Notes</label><input type=\"text\" name=\"Notes\" ng-model=\"$ctrl.resource.notes\" class=\"form-control\" id=\"resource-notes\">\n  </div>\n\n  <div class=\"form-group\">\n    <label for=\"resource-link\">Link</label><input type=\"url\" name=\"Link\" ng-model=\"$ctrl.resource.link\" class=\"form-control\" id=\"resource-link\">\n    <span class=\"alert alert-danger\" ng-show=\"editResourceForm.Link.$dirty && editResourceForm.Link.$invalid\">\n      <span ng-show=\"editResourceForm.Link.$error.url\">\n        Not a valid url format.\n      </span>\n    </span>\n  </div>\n\n  <button class=\"btn btn-primary\" ng-click=\"$ctrl.submit(editResourceForm)\" ng-disabled=\"editResourceForm.$invalid\" ui-sref=\"home\">Save</button>\n  <button class=\"btn btn-secondary\" ui-sref=\"home\">Cancel</button>\n</form>\n\n\n"
+
+/***/ }),
+/* 214 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65914,7 +66175,7 @@ __export(__webpack_require__(10));
 //# sourceMappingURL=index.js.map
 
 /***/ }),
-/* 207 */
+/* 215 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65975,7 +66236,7 @@ exports.registerOnEnterHook = function (transitionService) {
 //# sourceMappingURL=onEnterExitRetain.js.map
 
 /***/ }),
-/* 208 */
+/* 216 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -66017,7 +66278,7 @@ exports.registerRedirectToHook = function (transitionService) {
 //# sourceMappingURL=redirectTo.js.map
 
 /***/ }),
-/* 209 */
+/* 217 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -66064,7 +66325,7 @@ exports.registerLazyResolveState = function (transitionService) {
 //# sourceMappingURL=resolve.js.map
 
 /***/ }),
-/* 210 */
+/* 218 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -66094,7 +66355,7 @@ exports.registerUpdateUrl = function (transitionService) {
 //# sourceMappingURL=url.js.map
 
 /***/ }),
-/* 211 */
+/* 219 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -66146,7 +66407,7 @@ exports.registerActivateViews = function (transitionService) {
 //# sourceMappingURL=views.js.map
 
 /***/ }),
-/* 212 */
+/* 220 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -66171,7 +66432,7 @@ exports.UIRouterPluginBase = UIRouterPluginBase;
 //# sourceMappingURL=interface.js.map
 
 /***/ }),
-/* 213 */
+/* 221 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -66186,7 +66447,7 @@ __export(__webpack_require__(25));
 //# sourceMappingURL=index.js.map
 
 /***/ }),
-/* 214 */
+/* 222 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -66200,7 +66461,7 @@ __export(__webpack_require__(19));
 //# sourceMappingURL=index.js.map
 
 /***/ }),
-/* 215 */
+/* 223 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -66215,7 +66476,7 @@ __export(__webpack_require__(20));
 //# sourceMappingURL=index.js.map
 
 /***/ }),
-/* 216 */
+/* 224 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -66233,7 +66494,7 @@ __export(__webpack_require__(8));
 //# sourceMappingURL=index.js.map
 
 /***/ }),
-/* 217 */
+/* 225 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -66264,7 +66525,7 @@ __export(__webpack_require__(29));
 //# sourceMappingURL=index.js.map
 
 /***/ }),
-/* 218 */
+/* 226 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -66280,7 +66541,7 @@ __export(__webpack_require__(162));
 //# sourceMappingURL=index.js.map
 
 /***/ }),
-/* 219 */
+/* 227 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -66292,7 +66553,7 @@ __export(__webpack_require__(163));
 //# sourceMappingURL=index.js.map
 
 /***/ }),
-/* 220 */
+/* 228 */
 /***/ (function(module, exports) {
 
 var g;
@@ -66319,7 +66580,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 221 */
+/* 229 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
