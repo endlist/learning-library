@@ -63198,7 +63198,7 @@ function AppRoutes($stateProvider) {
       'header': {
         template: __webpack_require__(216)
       },
-      'interaction@home': {
+      'interaction': {
         template: '<ui-view/>'
       },
       'library': {
@@ -63207,14 +63207,17 @@ function AppRoutes($stateProvider) {
     }
   }).state('library', {
     parent: 'home',
-    url: 'library/'
+    url: 'library/',
+    abstract: true
   }).state('library.list', {
+    url: 'list/',
     views: {
       'libraryView@home': {
         component: 'libraryList'
       }
     }
   }).state('library.cards', {
+    url: 'cards/',
     views: {
       'libraryView@home': {
         component: 'libraryCards'
@@ -63435,13 +63438,20 @@ var LibraryController = function () {
     _classCallCheck(this, LibraryController);
 
     this.$state = $state;
+    console.log(this.$state);
+    this.setView('list');
   }
 
   _createClass(LibraryController, [{
-    key: "switchView",
-    value: function switchView(subView) {
-      console.log(subView);
-      this.$state.go("library." + subView);
+    key: 'setView',
+    value: function setView(subView) {
+      this.view = subView;
+      this.$state.go('library.' + subView);
+    }
+  }, {
+    key: 'getView',
+    value: function getView() {
+      return this.view;
     }
   }]);
 
@@ -66296,7 +66306,7 @@ module.exports = "<div class=\"card-deck-wrapper\">\n<div class=\"card-deck row\
 /* 218 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n  <section class=\"library col-12\">\n    <h3>Resources</h3>\n    <button ng-click=\"$ctrl.switchView('cards')\" class=\"btn btn-secondary\">Cards</button>\n    <button ng-click=\"$ctrl.switchView('list')\" class=\"btn btn-secondary\">List</button>\n    <div ui-view=\"libraryView\">\n      <library-list><library-list>\n    </div>\n  </section>\n</div>\n"
+module.exports = "<div class=\"row\">\n  <section class=\"library col-12\">\n    <h3>Resources</h3>\n    <button ng-click=\"$ctrl.setView('cards')\" ng-class=\"{ active: $ctrl.getView() === 'cards' }\" class=\"btn btn-secondary\">Cards</button>\n    <button ng-click=\"$ctrl.setView('list')\" ng-class=\"{ active: $ctrl.getView() === 'list' }\" class=\"btn btn-secondary\">List</button>\n    <div ui-view=\"libraryView\">\n      <library-list></library-list>\n    </div>\n  </section>\n</div>\n"
 
 /***/ }),
 /* 219 */
