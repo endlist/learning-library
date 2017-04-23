@@ -66294,7 +66294,7 @@ webpackContext.id = 215;
 /* 216 */
 /***/ (function(module, exports) {
 
-module.exports = "<header class=\"row\">\n  <h1 class=\"col-12\">Learning Library</h1>\n</header>\n\n<button ui-sref=\"resource.add\" class=\"btn btn-primary\">Add New Resource</button>\n<div ui-view=\"interaction\"></div>\n"
+module.exports = "<header class=\"row\">\n  <h1 class=\"col-12\">Learning Library\n    <button ui-sref=\"resource.add\" class=\"btn btn-primary\">Add New Resource</button>\n  </h1>\n</header>\n\n<div ui-view=\"interaction\"></div>\n"
 
 /***/ }),
 /* 217 */
