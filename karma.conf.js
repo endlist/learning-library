@@ -1,3 +1,5 @@
+const webpackConfig = require('./webpack.config')();
+
 // Karma configuration
 // Generated on Sat Apr 15 2017 23:09:28 GMT-0600 (MDT)
 
@@ -10,13 +12,12 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['mocha', 'chai'],
+    frameworks: ['mocha', 'sinon-stub-promise', 'sinon-chai', 'chai'],
 
 
     // list of files / patterns to load in the browser
     files: [
-      // 'src#<{(||)}>#*.test.js'
-      'src/tests.bundle.js'
+      'tests.bundle.js'
     ],
 
 
@@ -28,7 +29,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'src/tests.bundle.js': ['webpack']
+      'tests.bundle.js': ['webpack']
     },
 
 
@@ -66,6 +67,15 @@ module.exports = function(config) {
 
     // Concurrency level
     // how many browser should be started simultaneous
-    concurrency: Infinity
+    concurrency: Infinity,
+
+    webpack: webpackConfig,
+
+    webpackMiddleware: {
+      noInfo: true,
+      stats: {
+        chunks: false
+      }
+    }
   });
 };

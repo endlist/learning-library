@@ -1,0 +1,16 @@
+library-cards .card-deck .card {
+  margin: 15px;
+}
+
+library-cards .card-img-top {
+  padding-top: 15px;
+}
+
+library-cards .date-updated,
+library-cards .card-text {
+  margin: 0 .25rem 1rem;
+}
+
+library-cards .date-updated {
+  font-size: .8em;
+}

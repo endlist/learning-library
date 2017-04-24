@@ -1,9 +1,17 @@
 export default class LibraryController {
-  constructor() {
-    this.title = '';
+
+  constructor ($state) {
+    this.$state = $state;
+    this.setView('list');
   }
 
-  submit() {
-    console.log('hello', this.title)
+  setView (subView) {
+    this.view = subView;
+    this.$state.go(`library.${subView}`);
   }
+
+  getView () {
+    return this.view;
+  }
+
 }

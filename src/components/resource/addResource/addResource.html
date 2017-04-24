@@ -1,0 +1,51 @@
+<div class="row">
+  <section class="add-resource col-12">
+
+    <h2>Add Resource</h2>
+
+    <form name="addResourceForm" ng-submit="$ctrl.submit()" novalidate>
+
+      <div class="form-group">
+        <label for="resource-type">Type</label>
+        <select class="form-control" id="resource-type" ng-model="$ctrl.resource.type" required>
+          <option value="Book">Book</option>
+          <option value="Site">Site</option>
+          <option value="Podcast">Podcast</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="resource-title">Title</label>
+        <input
+               type="text"
+               name="Title"
+               ng-model="$ctrl.resource.title"
+               class="form-control"
+               id="resource-title"
+               required>
+        <span class="alert alert-danger" ng-show="addResourceForm.Title.$dirty && addResourceForm.Title.$invalid">
+          <span ng-show="addResourceForm.Title.$error.required">
+            REQUIRED.
+          </span>
+        </span>
+      </div>
+
+      <div class="form-group">
+        <label for="resource-notes">Notes</label><input type="text" name="Notes" ng-model="$ctrl.resource.notes" class="form-control" id="resource-notes">
+      </div>
+
+      <div class="form-group">
+        <label for="resource-link">Link</label><input type="url" name="Link" ng-model="$ctrl.resource.link" class="form-control" id="resource-link">
+        <span class="alert alert-danger" ng-show="addResourceForm.Link.$dirty && addResourceForm.Link.$invalid">
+          <span ng-show="addResourceForm.Link.$error.url">
+            Not a valid url format.
+          </span>
+        </span>
+      </div>
+
+      <button class="btn btn-primary" ng-click="$ctrl.reset(addResourceForm)" ng-disabled="addResourceForm.$invalid">Add</button>
+      <button class="btn btn-secondary" ui-sref="home">Cancel</button>
+
+    </form>
+  </section>
+</div>
