@@ -63293,6 +63293,7 @@ var LibraryCardsController = function () {
     this.resources = null;
     this.resourceSvc = ResourceService;
     this.updateResources();
+    console.log(this.resources);
 
     $scope.$on(eventNames.lsSet, function (event, val) {
       _this.updateResources();
@@ -63438,7 +63439,6 @@ var LibraryController = function () {
     _classCallCheck(this, LibraryController);
 
     this.$state = $state;
-    console.log(this.$state);
     this.setView('list');
   }
 
@@ -66300,7 +66300,7 @@ module.exports = "<header class=\"row\">\n  <h1 class=\"col-12\">Learning Librar
 /* 217 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card-deck-wrapper\">\n<div class=\"card-deck row\">\n  <div class=\"card\" ng-repeat=\"resource in $ctrl.resources\">\n    <div class=\"card-img-top img-responsive\">\n      <svg class=\"icon\">\n        <use ng-attr-xlink:href=\"{{resource.imgUrl}}\" xlink:href=\"\" />\n      </svg>\n    </div>\n    <div class=\"card-block\">\n      <h4 class=\"card-header\">\n        <!-- link if one exists -->\n        <span ng-if=\"resource.link\">\n          <a ng-if=\"resource.link\" href=\"{{resource.link}}\">{{ resource.title }}</a>\n        </span>\n        <!-- don't link as default -->\n        <span ng-if=\"!resource.link\">\n          {{ resource.title }}\n        </span>\n      </h4>\n      <p class=\"card-text\">Notes: {{resource.notes || \"N/A\"}}</p>\n      <div class=\"date-updated\">\n        Last Updated: <span am-time-ago=\"resource.dateUpdated\"></span>\n        ({{resource.dateUpdated | date:'MMM dd yyyy'}})\n      </div>\n      <span class=\"float-right\">\n        <button class=\"btn btn-primary btn-sm\" ui-sref=\"resource.edit({ resourceId: resource.key })\">Edit</button>\n        <remove-resource resource=\"resource\"></remove-resource>\n      </span>\n    </div>\n  </div>\n</div>\n</div>\n"
+module.exports = "<div class=\"card-deck-wrapper\">\n<div class=\"card-deck row\">\n  <div class=\"card\" ng-repeat=\"resource in $ctrl.resources\">\n    <div class=\"card-img-top img-responsive\">\n      <svg class=\"icon\">\n        <use ng-attr-xlink:href=\"{{resource.imgUrl}}\" xlink:href=\"\" />\n      </svg>\n    </div>\n    <div class=\"card-block\">\n      <h4 class=\"card-header\">\n        <!-- link if one exists -->\n        <span ng-if=\"resource.link\">\n          <a ng-if=\"resource.link\" href=\"{{resource.link}}\">{{ resource.title }}</a>\n        </span>\n        <!-- don't link as default -->\n        <span ng-if=\"!resource.link\">\n          {{ resource.title }}\n        </span>\n      </h4>\n      <p class=\"card-text\">Notes: {{resource.notes || \"N/A\"}}</p>\n      <div class=\"date-updated\">\n        Last Updated: <span am-time-ago=\"resource.dateUpdated\"></span>\n        ({{resource.dateUpdated | date:'MMM dd yyyy'}})\n      </div>\n      <span class=\"float-right\">\n        <button class=\"btn btn-primary btn-sm\" ui-sref=\"resource.edit({ resourceId: resource.key })\">Edit</button>\n        <remove-resource resource=\"resource\"></remove-resource>\n      </span>\n    </div>\n  </div>\n</div>\n<div ng-if=\"$ctrl.resources == null || $ctrl.resources.length == 0\" class=\"row jumbotron\">\n  Add Some Resources!\n</div>\n</div>\n"
 
 /***/ }),
 /* 218 */
